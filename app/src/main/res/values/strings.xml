@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Implicit_Intents</string>
+    <string name="timer_txt">Timer</string>
+    <string name="alarm_txt">Alarm</string>
+    <string name="calendar_txt">Calendar</string>
+    <string name="camera_txt">camera</string>
+    <string name="video_camera_txt">video camera</string>
+    <string name="contact_txt">contact</string>
+    <string name="email_txt">email</string>
+    <string name="file_txt">file storage</string>
+    <string name="maps_txt">maps</string>
+    <string name="phone_txt">phone</string>
 </resources>

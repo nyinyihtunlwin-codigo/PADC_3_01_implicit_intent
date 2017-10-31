@@ -6,13 +6,84 @@
     android:layout_height="match_parent"
     tools:context="projects.nyinyihtunlwin.implicit_intents.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btn_alarm"
+        style="@style/MyBtn"
+        android:text="@string/alarm_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_timer"
+        style="@style/MyBtn"
+        android:text="@string/timer_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_alarm" />
+
+    <Button
+        android:id="@+id/btn_calendar"
+        style="@style/MyBtn"
+        android:text="@string/calendar_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_timer" />
+
+    <Button
+        android:id="@+id/btn_camera"
+        style="@style/MyBtn"
+        android:text="@string/camera_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_calendar" />
+
+    <Button
+        android:id="@+id/btn_video_camera"
+        style="@style/MyBtn"
+        android:text="@string/video_camera_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_camera" />
+
+    <Button
+        android:id="@+id/btn_contact"
+        style="@style/MyBtn"
+        android:text="@string/contact_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_video_camera" />
+
+    <Button
+        android:id="@+id/btn_email"
+        style="@style/MyBtn"
+        android:text="@string/email_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_contact" />
+
+    <Button
+        android:id="@+id/btn_file"
+        style="@style/MyBtn"
+        android:text="@string/file_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_email" />
+
+    <Button
+        android:id="@+id/btn_maps"
+        style="@style/MyBtn"
+        android:text="@string/maps_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_file" />
+
+    <Button
+        android:id="@+id/btn_phone"
+        style="@style/MyBtn"
+        android:text="@string/phone_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_maps" />
+
 
 </android.support.constraint.ConstraintLayout>
