@@ -7,7 +7,12 @@
     <string name="video_camera_txt">video camera</string>
     <string name="contact_txt">contact</string>
     <string name="email_txt">email</string>
-    <string name="file_txt">file storage</string>
+    <string name="file_txt">Pick Image</string>
     <string name="maps_txt">maps</string>
     <string name="phone_txt">phone</string>
+    <string name="share_txt">Share</string>
+    <string name="share_hint_txt">Enter Text</string>
+    <string name="share_text_txt">Share Text</string>
+    <string name="share_email_txt">Share Email</string>
+    <string name="share_file_txt">Share File</string>
 </resources>
