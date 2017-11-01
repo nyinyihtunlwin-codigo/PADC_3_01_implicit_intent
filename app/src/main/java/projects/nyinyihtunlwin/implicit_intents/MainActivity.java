@@ -1,26 +1,20 @@
 package projects.nyinyihtunlwin.implicit_intents;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnAlarm, btnTimer, btnCalendar, btnPhone, btnCamera, btnContact, btnEmail, btnMap, btnPick, btnShare;
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+    private Button btnAlarm, btnTimer, btnCalendar, btnPhone, btnCamera, btnContact, btnEmail, btnMap, btnShare;
     static final int REQUEST_SELECT_CONTACT = 1;
-    private static final int REQUEST_CODE_IMAGE = 100;
-    Uri mLocationForPhotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnContact.setOnClickListener(this);
         btnEmail.setOnClickListener(this);
         btnMap.setOnClickListener(this);
-        btnPick.setOnClickListener(this);
         btnShare.setOnClickListener(this);
     }
 
@@ -48,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnContact = (Button) findViewById(R.id.btn_contact);
         btnEmail = (Button) findViewById(R.id.btn_email);
         btnMap = (Button) findViewById(R.id.btn_maps);
-        btnPick = (Button) findViewById(R.id.btn_pick);
         btnShare = (Button) findViewById(R.id.btn_share);
     }
 
@@ -68,7 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 dialPhoneNumber("09796841952");
                 break;
             case R.id.btn_camera:
-                capturePhoto("test");
+                Intent intent = CameraActivity.newIntent(getApplicationContext());
+                startActivity(intent);
                 break;
             case R.id.btn_contact:
                 selectContact();
@@ -81,20 +74,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_maps:
                 showMap(Uri.parse("geo:0,0?q=34.99,-106.61(Treasure)"));
                 break;
-            case R.id.btn_pick:
-                startImageChooser();
-                break;
             case R.id.btn_share:
-                Intent intent = ShareActivity.newIntent(getApplicationContext());
-                startActivity(intent);
+                Intent inten = ShareActivity.newIntent(getApplicationContext());
+                startActivity(inten);
                 break;
         }
-    }
-
-    private void startImageChooser() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/png");
-        startActivityForResult(intent, REQUEST_CODE_IMAGE);
     }
 
     public void dialPhoneNumber(String phoneNumber) {
@@ -131,8 +115,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtra(Intent.EXTRA_EMAIL, addresses);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_STREAM, attachment);
+        Intent chooser = Intent.createChooser(intent, "Choose App");
         if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
+            startActivity(chooser);
         }
     }
 
@@ -144,28 +129,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-    public void capturePhoto(String targetFilename) {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.withAppendedPath(mLocationForPhotos, targetFilename));
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bitmap thumbnail = data.getParcelableExtra("data");
-        } else if (requestCode == REQUEST_CODE_IMAGE) {
-            if (resultCode == RESULT_OK) {
-                if (data != null) {
-                    Uri imageUri = data.getData();
-                }
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
-            }
-        }
+
     }
 
     public void createAlarm(String message, int hour, int minutes) {

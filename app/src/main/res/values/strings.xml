@@ -3,7 +3,7 @@
     <string name="timer_txt">Timer</string>
     <string name="alarm_txt">Alarm</string>
     <string name="calendar_txt">Calendar</string>
-    <string name="camera_txt">camera</string>
+    <string name="camera_txt">camera/gallery</string>
     <string name="video_camera_txt">video camera</string>
     <string name="contact_txt">contact</string>
     <string name="email_txt">email</string>
@@ -15,4 +15,5 @@
     <string name="share_text_txt">Share Text</string>
     <string name="share_email_txt">Share Email</string>
     <string name="share_file_txt">Share File</string>
+    <string name="take_photo_txt">Take Photo</string>
 </resources>
