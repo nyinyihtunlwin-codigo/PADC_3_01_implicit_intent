@@ -17,4 +17,5 @@
     <string name="share_file_txt">Share File</string>
     <string name="take_photo_txt">Take Photo</string>
     <string name="title_txt">Implicit Intents</string>
+    <string name="search_text_txt">search</string>
 </resources>

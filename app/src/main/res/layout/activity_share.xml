@@ -22,12 +22,20 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:id="@+id/btn_search_text"
+        style="@style/MyBtn"
+        android:text="@string/search_text_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tip_text" />
+
+    <Button
         android:id="@+id/btn_share_text"
         style="@style/MyBtn"
         android:text="@string/share_text_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_text" />
+        app:layout_constraintTop_toBottomOf="@id/btn_search_text" />
 
     <Button
         android:id="@+id/btn_share_email"

@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class ShareActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextInputLayout textInputLayout;
-    private Button btnShareTxt, btnShareEmail, btnShareFile;
+    private Button btnShareTxt, btnShareEmail, btnShareFile, btnSearch;
     private static final int REQUEST_CODE_IMAGE = 100;
 
     public static Intent newIntent(Context context) {
@@ -30,6 +30,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         btnShareTxt.setOnClickListener(this);
         btnShareEmail.setOnClickListener(this);
         btnShareFile.setOnClickListener(this);
+        btnSearch.setOnClickListener(this);
     }
 
     private void initializeUI() {
@@ -37,6 +38,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         btnShareTxt = (Button) findViewById(R.id.btn_share_text);
         btnShareEmail = (Button) findViewById(R.id.btn_share_email);
         btnShareFile = (Button) findViewById(R.id.btn_share_file);
+        btnSearch = (Button) findViewById(R.id.btn_search_text);
     }
 
     @Override
@@ -54,6 +56,13 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.btn_share_file:
                 startImageChooser();
+                break;
+            case R.id.btn_search_text:
+                if (!textInputLayout.getEditText().getText().toString().isEmpty()) {
+                    search(textInputLayout.getEditText().getText().toString());
+                } else {
+                    Toast.makeText(getApplicationContext(), "Enter text first!", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
@@ -100,6 +109,12 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(this, "No client support this content", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void search(String text) {
+        Intent i = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.com/search?q="+text));
+        startActivity(i);
     }
 
     private void startImageChooser() {
