@@ -16,4 +16,5 @@
     <string name="share_email_txt">Share Email</string>
     <string name="share_file_txt">Share File</string>
     <string name="take_photo_txt">Take Photo</string>
+    <string name="title_txt">Implicit Intents</string>
 </resources>

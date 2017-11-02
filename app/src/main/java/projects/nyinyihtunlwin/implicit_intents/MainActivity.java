@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.provider.CalendarContract;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +12,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnAlarm, btnTimer, btnCalendar, btnPhone, btnCamera, btnContact, btnEmail, btnMap, btnShare;
-    static final int REQUEST_SELECT_CONTACT = 1;
+    private Button btnAlarm, btnTimer, btnCalendar, btnPhone, btnCamera, btnEmail, btnMap, btnShare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCamera.setOnClickListener(this);
         btnCalendar.setOnClickListener(this);
         btnPhone.setOnClickListener(this);
-        btnContact.setOnClickListener(this);
         btnEmail.setOnClickListener(this);
         btnMap.setOnClickListener(this);
         btnShare.setOnClickListener(this);
@@ -38,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCalendar = (Button) findViewById(R.id.btn_calendar);
         btnPhone = (Button) findViewById(R.id.btn_phone);
         btnCamera = (Button) findViewById(R.id.btn_camera);
-        btnContact = (Button) findViewById(R.id.btn_contact);
         btnEmail = (Button) findViewById(R.id.btn_email);
         btnMap = (Button) findViewById(R.id.btn_maps);
         btnShare = (Button) findViewById(R.id.btn_share);
@@ -62,9 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_camera:
                 Intent intent = CameraActivity.newIntent(getApplicationContext());
                 startActivity(intent);
-                break;
-            case R.id.btn_contact:
-                selectContact();
                 break;
             case R.id.btn_email:
                 String[] address = {"nnhl.mgk@gmail.com"};
@@ -118,14 +111,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent chooser = Intent.createChooser(intent, "Choose App");
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(chooser);
-        }
-    }
-
-    public void selectContact() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType(ContactsContract.Contacts.CONTENT_TYPE);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(intent, REQUEST_SELECT_CONTACT);
         }
     }
 

@@ -43,7 +43,11 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_share_text:
-                shareText(textInputLayout.getEditText().getText().toString());
+                if (!textInputLayout.getEditText().getText().toString().isEmpty()) {
+                    shareText(textInputLayout.getEditText().getText().toString());
+                } else {
+                    Toast.makeText(getApplicationContext(), "Enter text first!", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btn_share_email:
                 shareEmail();

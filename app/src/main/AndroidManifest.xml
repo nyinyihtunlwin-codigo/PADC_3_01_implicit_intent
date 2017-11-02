@@ -3,7 +3,6 @@
     package="projects.nyinyihtunlwin.implicit_intents">
 
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
